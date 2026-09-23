@@ -4,6 +4,15 @@ Refonte du site [cioff-france.org](https://cioff-france.org) selon le [cahier de
 
 Objectif : un site que **n'importe quel bénévole peut modifier** sans toucher au code.
 
+## ▶ Démo en ligne (gratuite)
+
+**[Ouvrir le site de démonstration dans WordPress Playground](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/AlricGael/CIOFF-Website/main/blueprint.json)**
+
+Un vrai WordPress, installé automatiquement avec le thème, l'extension et des adhérents **fictifs** (environ 30 secondes de chargement). Chaque visiteur a sa propre copie : rien n'est sauvegardé et les e-mails ne partent pas.
+
+- Vous êtes connecté en administrateur. Voir le menu **À valider**, **Annuaire** et **Réglages CIOFF**.
+- Pour tester en tant qu'adhérent : se déconnecter, puis se reconnecter avec l'identifiant `groupe`, `festival` ou `membre` (mot de passe `demo`) et aller dans **Mon espace**.
+
 ## Contenu du dépôt
 
 | Dossier | Rôle |
