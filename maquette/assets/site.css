@@ -1,0 +1,129 @@
+/* Maquette statique : reproduit les variables du thème WordPress (theme.json) et son style.css. */
+:root {
+	--wp--preset--color--bleu-nuit: #14264a;
+	--wp--preset--color--bleu: #1f3f7a;
+	--wp--preset--color--bleu-clair: #4a90d9;
+	--wp--preset--color--terre: #c0501a;
+	--wp--preset--color--ocre: #f0a04b;
+	--wp--preset--color--vert: #2e8b57;
+	--wp--preset--color--sable: #f6f1e9;
+	--wp--preset--color--bordure: #dcd6cc;
+	--wp--preset--color--gris: #5b6472;
+	--wp--preset--color--encre: #1b2333;
+	--wp--preset--color--blanc: #ffffff;
+	--police-texte: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	--police-titres: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+	--large: 1200px;
+	--contenu: 760px;
+	--gouttiere: clamp(1rem, 4vw, 2rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--wp--preset--color--blanc); color: var(--wp--preset--color--encre); font: 1.0625rem/1.65 var(--police-texte); }
+img { max-width: 100%; height: auto; }
+h1, h2, h3 { font-family: var(--police-titres); font-weight: 700; line-height: 1.2; color: var(--wp--preset--color--bleu-nuit); text-wrap: balance; }
+h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); margin: 0 0 1rem; }
+h2 { font-size: clamp(1.6rem, 3vw, 2rem); margin: 0 0 1rem; }
+h3 { font-size: 1.2rem; }
+a { color: var(--wp--preset--color--bleu); }
+a:hover { color: var(--wp--preset--color--terre); }
+:focus-visible { outline: 3px solid var(--wp--preset--color--bleu-clair); outline-offset: 2px; }
+
+.large { max-width: var(--large); margin-inline: auto; padding-inline: var(--gouttiere); }
+.etroit { max-width: calc(var(--contenu) + 2 * var(--gouttiere)); margin-inline: auto; padding-inline: var(--gouttiere); }
+.bande { padding-block: clamp(2.5rem, 6vw, 4rem); }
+.bande--sable { background: var(--wp--preset--color--sable); }
+
+/* Bandeau maquette */
+.maquette-bandeau { background: #fff3c4; color: #5a4300; text-align: center; font-size: .85rem; padding: .45rem var(--gouttiere); border-bottom: 1px solid #e8d48a; }
+
+/* Boutons */
+.wp-element-button, .bouton { display: inline-block; background: var(--wp--preset--color--terre); color: #fff; border: 2px solid transparent; border-radius: 999px; padding: .7rem 1.4rem; font: 600 1rem/1.3 var(--police-texte); text-decoration: none; cursor: pointer; }
+.wp-element-button:hover, .bouton:hover { background: var(--wp--preset--color--bleu-nuit); color: #fff; }
+.bouton--contour { background: transparent; color: var(--wp--preset--color--bleu); border-color: currentColor; }
+.bouton--contour:hover { background: var(--wp--preset--color--bleu); border-color: var(--wp--preset--color--bleu); }
+.boutons { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+
+/* En-tête */
+.cioff-entete { border-bottom: 1px solid var(--wp--preset--color--bordure); background: #fff; position: relative; z-index: 1000; }
+.cioff-entete__haut { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 1.25rem; font-size: .85rem; padding-block: .4rem; }
+.cioff-entete__haut a { text-decoration: none; font-weight: 600; }
+.cioff-entete__principal { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-block: .6rem 1rem; }
+.logo { display: flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--wp--preset--color--bleu-nuit); font: 700 1.35rem/1.1 var(--police-titres); }
+.logo:hover { color: var(--wp--preset--color--bleu-nuit); }
+.logo__rond { width: 48px; height: 48px; flex: none; border-radius: 50%; background: conic-gradient(var(--wp--preset--color--bleu) 0 25%, var(--wp--preset--color--terre) 0 50%, var(--wp--preset--color--ocre) 0 75%, var(--wp--preset--color--vert) 0); border: 4px solid #fff; box-shadow: 0 0 0 1px var(--wp--preset--color--bordure); }
+.nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: 0; padding: 0; }
+.nav a { text-decoration: none; color: var(--wp--preset--color--encre); font-weight: 600; padding: .3rem 0; border-bottom: 2px solid transparent; }
+.nav a:hover, .nav a[aria-current="page"] { color: var(--wp--preset--color--bleu); border-bottom-color: var(--wp--preset--color--terre); }
+.nav__bouton { display: none; background: none; border: 1px solid var(--wp--preset--color--bordure); border-radius: 8px; padding: .45rem .7rem; font: 600 .95rem var(--police-texte); color: var(--wp--preset--color--encre); cursor: pointer; }
+
+/* Hero */
+.hero { background: var(--wp--preset--color--bleu-nuit); color: #fff; padding-block: clamp(3rem, 8vw, 5.5rem); position: relative; overflow: hidden; }
+.hero::after { content: ""; position: absolute; right: -120px; top: -120px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(240,160,75,.35), transparent 65%); pointer-events: none; }
+.hero h1 { color: #fff; max-width: 16ch; }
+.hero p { max-width: 58ch; font-size: 1.15rem; opacity: .92; }
+.hero .bouton--contour { color: #fff; }
+.hero .bouton--contour:hover { background: #fff; color: var(--wp--preset--color--bleu-nuit); border-color: #fff; }
+.surtitre { text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; font-weight: 700; opacity: .85; margin: 0 0 .75rem; }
+
+.grille-2 { display: grid; gap: 2.5rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.chapo { font-size: 1.25rem; line-height: 1.55; color: var(--wp--preset--color--gris); }
+.titre-page { padding-block: clamp(2rem, 5vw, 3rem) 1rem; }
+
+/* Instagram simulé */
+.insta { display: grid; gap: .6rem; grid-template-columns: repeat(6, 1fr); margin-top: 1.25rem; }
+.insta span { aspect-ratio: 1; border-radius: 8px; display: grid; place-items: center; color: #fff; font-size: .75rem; opacity: .9; }
+
+/* Pied de page */
+.cioff-pied { background: var(--wp--preset--color--bleu-nuit); color: #fff; padding-block: clamp(3rem, 7vw, 5rem) 1.5rem; font-size: .95rem; }
+.cioff-pied a { color: inherit; }
+.cioff-pied h3 { color: inherit; font-family: var(--police-texte); font-size: 1rem; margin-top: 0; }
+.cioff-pied__colonnes { display: grid; gap: 2rem; grid-template-columns: 1.6fr 1fr 1fr; }
+.cioff-pied ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .35rem; }
+.cioff-pied__bas { border-top: 1px solid rgba(255,255,255,.2); margin-top: 2.5rem; padding-top: 1.25rem; text-align: center; font-size: .85rem; opacity: .8; }
+.cioff-reseaux { display: flex !important; gap: .6rem !important; margin-top: 1rem !important; }
+.cioff-reseaux a { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,.12); }
+.cioff-reseaux a:hover { background: var(--wp--preset--color--terre); color: #fff; }
+
+/* Fiche : image de couverture */
+.couverture { height: clamp(220px, 35vw, 380px); border-radius: 12px; background: linear-gradient(135deg, #1f3f7a, #c0501a); display: grid; place-items: center; color: rgba(255,255,255,.8); font-size: .9rem; margin-top: 2rem; }
+.affiche-fictive { aspect-ratio: 3 / 4; border-radius: 8px; background: linear-gradient(160deg, #f0a04b, #c0501a 55%, #14264a); color: #fff; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.25rem; font-family: var(--police-titres); box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+.affiche-fictive strong { font-size: 1.6rem; line-height: 1.1; }
+.photo-fictive { aspect-ratio: 4 / 3; border-radius: 6px; }
+
+/* Écran d'administration simulé */
+.admin { background: #f0f0f1; min-height: 100vh; font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1d2327; }
+.admin__barre { background: #1d2327; color: #f0f0f1; height: 32px; display: flex; align-items: center; padding: 0 12px; gap: 16px; font-size: 13px; }
+.admin__barre a { color: #f0f0f1; text-decoration: none; }
+.admin__corps { display: grid; grid-template-columns: 180px 1fr; }
+.admin__menu { background: #1d2327; min-height: calc(100vh - 32px); padding-top: 8px; }
+.admin__menu a { display: flex; justify-content: space-between; color: #f0f0f1; text-decoration: none; padding: 8px 12px; font-size: 14px; }
+.admin__menu a[aria-current] { background: #2271b1; }
+.admin__pastille { background: #d63638; color: #fff; border-radius: 9px; font-size: 11px; padding: 0 6px; line-height: 18px; }
+.admin__contenu { padding: 20px 24px; max-width: 1150px; }
+.admin h1, .admin h2 { font-family: inherit; color: #1d2327; }
+.admin h1 { font-size: 23px; font-weight: 400; }
+.admin h2 { font-size: 1.3em; margin: 1.5em 0 .6em; }
+.carte-admin { background: #fff; border: 1px solid #c3c4c7; padding: 16px 20px; margin-bottom: 16px; }
+.carte-admin h3 { font-family: inherit; margin: 0 0 6px; color: #1d2327; }
+.tableau-admin { width: 100%; border-collapse: collapse; margin: 10px 0; }
+.tableau-admin th, .tableau-admin td { border: 1px solid #dcdcde; padding: 8px 10px; text-align: left; vertical-align: top; }
+.tableau-admin thead th { background: #f6f7f7; }
+.tableau-admin td.nouveau { background: #f0f7ee; }
+.admin textarea { width: 100%; font: inherit; padding: 6px 8px; border: 1px solid #8c8f94; border-radius: 4px; }
+.btn-wp { display: inline-block; padding: 0 12px; line-height: 30px; border-radius: 3px; border: 1px solid #2271b1; background: #f6f7f7; color: #2271b1; font: inherit; cursor: pointer; margin-right: 6px; }
+.btn-wp--primaire { background: #2271b1; color: #fff; }
+.notice-wp { background: #fff; border-left: 4px solid #00a32a; padding: 10px 12px; margin: 10px 0 16px; box-shadow: 0 1px 1px rgba(0,0,0,.04); }
+
+/* Mobile */
+@media (max-width: 900px) {
+	.nav__bouton { display: inline-block; }
+	.nav ul { display: none; position: absolute; left: 0; right: 0; top: 100%; background: #fff; flex-direction: column; padding: 1rem var(--gouttiere) 1.5rem; border-bottom: 1px solid var(--wp--preset--color--bordure); box-shadow: 0 10px 20px rgba(0,0,0,.08); }
+	.nav.ouvert ul { display: flex; }
+	.grille-2, .cioff-pied__colonnes { grid-template-columns: 1fr; }
+	.insta { grid-template-columns: repeat(3, 1fr); }
+	.admin__corps { grid-template-columns: 1fr; }
+	.admin__menu { min-height: 0; display: flex; overflow-x: auto; }
+	.admin__menu a { white-space: nowrap; }
+}
