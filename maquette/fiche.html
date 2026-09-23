@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Festival des Danses du Monde de Kerlann – CIOFF France</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="assets/front.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="annuaire">
+<div data-entete></div>
+<main class="large" style="padding-bottom:4rem">
+	<div class="couverture">Photo principale du festival</div>
+	<h1 style="margin-top:1.5rem">Festival des Danses du Monde de Kerlann</h1>
+	<div class="cioff-fiche">
+		<p class="cioff-fiche__meta"><span data-badge="festival"></span> <span class="cioff-fiche__lieu">Quimper · Finistère (29) · Bretagne</span></p>
+		<div class="cioff-fiche__grille">
+			<div class="cioff-fiche__principal">
+				<div class="cioff-fiche__description">
+					<p>Chaque été, le festival accueille une quinzaine de groupes venus des cinq continents pour une semaine de spectacles, de défilés, d'ateliers de danse et de rencontres avec le public.</p>
+					<p>Plus de 400 bénévoles hébergent, accompagnent et font découvrir la région aux artistes.</p>
+				</div>
+				<section class="cioff-fiche__bloc"><h2>Dates des prochaines éditions</h2><p>2027 : du 12 au 18 juillet<br>2028 : du 10 au 16 juillet<br>2029 : du 9 au 15 juillet</p></section>
+				<section class="cioff-fiche__bloc"><h2>Programmation et groupes invités</h2><p>Mexique, Sénégal, Géorgie, Corée du Sud, Pérou, Estonie… Programme complet publié au printemps.</p></section>
+				<p><a class="wp-element-button" href="#">Devenir bénévole</a></p>
+				<section class="cioff-fiche__bloc"><h2>Photos</h2>
+					<div class="cioff-galerie">
+						<span class="photo-fictive" style="background:#1f3f7a"></span><span class="photo-fictive" style="background:#c0501a"></span><span class="photo-fictive" style="background:#f0a04b"></span>
+						<span class="photo-fictive" style="background:#2e8b57"></span><span class="photo-fictive" style="background:#4a90d9"></span><span class="photo-fictive" style="background:#14264a"></span>
+					</div>
+				</section>
+			</div>
+			<aside class="cioff-fiche__cote">
+				<figure class="cioff-fiche__affiche" style="margin:0 0 1.75rem"><div class="affiche-fictive"><span>Affiche officielle</span><strong>Danses du Monde 2027</strong></div><figcaption>Affiche officielle</figcaption></figure>
+				<div class="cioff-fiche__contact"><h2>Contact</h2><ul><li><a href="#">contact@exemple.fr</a></li><li><a href="#">02 00 00 00 00</a></li><li><a href="#">festival-exemple.fr</a></li></ul><p class="cioff-fiche__reseaux"><a href="#">Facebook</a> · <a href="#">Instagram</a></p></div>
+				<div class="cioff-minicarte" id="minicarte" role="img" aria-label="Localisation sur la carte"></div>
+				<div class="cioff-partage"><h2>Partager</h2><ul><li><a href="#">Facebook</a></li><li><a href="#">WhatsApp</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">X</a></li><li><a href="#">E-mail</a></li></ul></div>
+			</aside>
+		</div>
+		<p class="cioff-fiche__retour"><a href="annuaire.html">← Retour à l'annuaire</a></p>
+	</div>
+</main>
+<div data-pied></div>
+<script src="assets/data.js"></script>
+<script src="assets/layout.js"></script>
+<script>
+document.querySelectorAll( '[data-badge]' ).forEach( function ( el ) { el.outerHTML = CIOFF.badge( el.getAttribute( 'data-badge' ) ); } );
+document.getElementById( 'minicarte' ).setAttribute( 'data-minicarte', JSON.stringify( { lat: 47.996, lng: -4.102, zoom: 11, couleur: CIOFF.types.festival.couleur, icone: CIOFF.types.festival.icone, tiles: CIOFF.tiles } ) );
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="assets/annuaire.js"></script>
+</body>
+</html>

@@ -11,6 +11,9 @@ Objectif : un site que **n'importe quel bénévole peut modifier** sans toucher 
 | `wp-content/themes/cioff/` | Thème en blocs (apparence) : couleurs, typographie, en-tête, pied de page, modèles. Tout se modifie dans **Apparence → Éditeur**. |
 | `wp-content/plugins/cioff-core/` | Extension « CIOFF France – Fonctions du site » : annuaire et carte, fiches adhérents, validation, agenda, intranet, contact, rôles. |
 | `docs/` | Cahier des charges, guide administrateur, guide adhérent. |
+| `maquette/` | Maquette **statique** (données fictives) pour montrer le design à la commission. C'est elle que publie Vercel (`vercel.json`). Elle réutilise le CSS et le JS de la carte du plugin. |
+
+> Vercel ne peut pas faire tourner WordPress (PHP + MySQL). Le vrai site se teste dans LocalWP puis s'installe chez OVH.
 
 ## Ce que fait l'extension
 

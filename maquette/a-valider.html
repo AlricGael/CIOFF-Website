@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>À valider – Administration CIOFF France</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="assets/front.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="admin">
+<div class="maquette-bandeau">Maquette de l'écran d'administration « À valider » (données fictives). <a href="index.html">← Retour au site</a></div>
+<div class="admin__barre"><a href="index.html">⌂ CIOFF France</a><span>Bonjour, Administrateur CIOFF</span></div>
+<div class="admin__corps">
+	<nav class="admin__menu" aria-label="Menu d'administration">
+		<a href="#">Tableau de bord</a>
+		<a href="#" aria-current="page">À valider <span class="admin__pastille" id="compteur">3</span></a>
+		<a href="#">Annuaire</a>
+		<a href="#">Agenda</a>
+		<a href="#">Messages</a>
+		<a href="#">Pages</a>
+		<a href="#">Comptes</a>
+		<a href="#">Réglages CIOFF</a>
+	</nav>
+	<div class="admin__contenu">
+		<h1>À valider</h1>
+		<p>Tout ce que les adhérents ont envoyé depuis le site apparaît ici. Rien n'est publié sans votre accord.</p>
+		<div id="notice"></div>
+
+		<h2>Nouvelles fiches (1)</h2>
+		<div class="carte-admin" data-carte>
+			<h3>Les Enfants de la Gavotte <span data-badge="groupe-associe"></span></h3>
+			<p>Envoyé par Anne M. (anne@exemple.fr) le 21 septembre 2026</p>
+			<table class="tableau-admin"><tbody>
+				<tr><th style="width:220px">Présentation</th><td>Groupe d'enfants de 6 à 16 ans qui fait vivre les danses du pays vannetais…</td></tr>
+				<tr><th>Ville</th><td>Lorient</td></tr>
+				<tr><th>Département</th><td>Morbihan (56)</td></tr>
+				<tr><th>Catégorie</th><td>Enfants</td></tr>
+			</tbody></table>
+			<p><a href="#">Voir et modifier la fiche complète</a> · <a href="#">Aperçu</a></p>
+			<form data-decision>
+				<p><label>Commentaire pour l'adhérent (obligatoire en cas de renvoi) :<br><textarea rows="2" placeholder="Ex. : merci d'ajouter une photo et les dates 2028."></textarea></label></p>
+				<p><button type="submit" class="btn-wp btn-wp--primaire" value="publier">✔ Valider et publier</button><button type="submit" class="btn-wp" value="renvoyer">↩ Renvoyer pour correction</button></p>
+			</form>
+		</div>
+
+		<h2>Modifications de fiches publiées (1)</h2>
+		<div class="carte-admin" data-carte>
+			<h3>Les Sabots d'Auvergne <span data-badge="groupe-labellise"></span></h3>
+			<p>Proposée le 22 septembre 2026 à 18:42. Seuls les champs modifiés sont affichés ; la version actuelle reste en ligne en attendant.</p>
+			<table class="tableau-admin">
+				<thead><tr><th style="width:200px">Champ</th><th>Version en ligne</th><th>Modification proposée</th></tr></thead>
+				<tbody>
+					<tr><th>Catégorie</th><td>Adultes</td><td class="nouveau">Intergénérationnel</td></tr>
+					<tr><th>Tournées à l'étranger</th><td>Mexique (2019), Pologne (2022)</td><td class="nouveau">Mexique (2019), Pologne (2022), Corée du Sud (2025)</td></tr>
+				</tbody>
+			</table>
+			<form data-decision>
+				<p><label>Commentaire pour l'adhérent (obligatoire en cas de renvoi) :<br><textarea rows="2"></textarea></label></p>
+				<p><button type="submit" class="btn-wp btn-wp--primaire" value="publier">✔ Valider et publier</button><button type="submit" class="btn-wp" value="renvoyer">↩ Renvoyer pour correction</button></p>
+			</form>
+		</div>
+
+		<h2>Événements proposés (1)</h2>
+		<div class="carte-admin" data-carte>
+			<h3>Soirée des 60 ans des Sabots d'Auvergne</h3>
+			<p><strong>Samedi 17 octobre 2026 à 20h00</strong> — Clermont-Ferrand, salle des fêtes</p>
+			<p>Envoyé par Paul V. (paul@exemple.fr) le 20 septembre 2026</p>
+			<form data-decision>
+				<p><label>Commentaire pour l'adhérent (obligatoire en cas de renvoi) :<br><textarea rows="2"></textarea></label></p>
+				<p><button type="submit" class="btn-wp btn-wp--primaire" value="publier">✔ Valider et publier</button><button type="submit" class="btn-wp" value="renvoyer">↩ Renvoyer pour correction</button></p>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="assets/data.js"></script>
+<script>
+document.querySelectorAll( '[data-badge]' ).forEach( function ( el ) { el.outerHTML = CIOFF.badge( el.getAttribute( 'data-badge' ) ); } );
+var restant = 3;
+document.querySelectorAll( '[data-decision]' ).forEach( function ( form ) {
+	form.addEventListener( 'submit', function ( e ) {
+		e.preventDefault();
+		var action = e.submitter ? e.submitter.value : 'publier';
+		var commentaire = form.querySelector( 'textarea' );
+		if ( action === 'renvoyer' && ! commentaire.value.trim() ) {
+			commentaire.focus();
+			commentaire.placeholder = 'Écrivez un commentaire pour expliquer les corrections attendues.';
+			return;
+		}
+		form.closest( '[data-carte]' ).remove();
+		restant--;
+		document.getElementById( 'compteur' ).textContent = restant;
+		document.getElementById( 'notice' ).innerHTML = '<div class="notice-wp">' + ( action === 'publier'
+			? 'Publié. L\'adhérent a été prévenu par e-mail. (Simulation)'
+			: 'Renvoyé pour correction. L\'adhérent a reçu votre commentaire par e-mail. (Simulation)' ) + '</div>';
+	} );
+} );
+</script>
+</body>
+</html>

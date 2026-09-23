@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CIOFF France – Maquette</title>
+<meta name="description" content="Maquette du futur site du CIOFF France.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
+<link rel="stylesheet" href="assets/front.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body data-page="accueil">
+<div data-entete></div>
+<main>
+	<section class="hero">
+		<div class="large">
+			<p class="surtitre">Conseil International des Organisations de Festivals de Folklore et d'Arts Traditionnels</p>
+			<h1>Faire vivre les cultures traditionnelles du monde entier</h1>
+			<p>Le CIOFF France fédère des festivals et des groupes de folklore dans toute la France, en partenariat avec l'UNESCO pour la sauvegarde du patrimoine culturel immatériel.</p>
+			<div class="boutons"><a class="bouton" href="annuaire.html">Trouver un festival ou un groupe</a><a class="bouton bouton--contour" href="#">Découvrir le CIOFF</a></div>
+		</div>
+	</section>
+
+	<section class="bande">
+		<div class="large">
+			<h2>À la une</h2>
+			<ul class="cioff-agenda">
+				<li class="cioff-agenda__item"><div class="cioff-agenda__date" aria-hidden="true"><span>14</span>nov.</div><div class="cioff-agenda__texte"><p class="cioff-agenda__cat">Réunion CIOFF France</p><h3 class="cioff-agenda__titre"><a href="#">Assemblée générale du CIOFF France</a></h3><p class="cioff-agenda__quand">Samedi 14 novembre 2026 à 10h00 — Lieu à préciser</p></div></li>
+			</ul>
+			<section class="cioff-theme-annuel">
+				<div class="cioff-theme-annuel__image"><div style="min-height:280px;height:100%;background:linear-gradient(135deg,#4a90d9,#14264a 70%)"></div></div>
+				<div class="cioff-theme-annuel__texte">
+					<p class="cioff-theme-annuel__surtitre">Thème de l'année 2027</p>
+					<h2>Les danses de la mer</h2>
+					<p>Exemple de thème annuel défini par la commission culture. Le titre, le texte et l'image se modifient dans « Réglages CIOFF ».</p>
+				</div>
+			</section>
+		</div>
+	</section>
+
+	<section class="bande bande--sable">
+		<div class="large grille-2">
+			<div>
+				<h2>Prochaines réunions CIOFF France</h2>
+				<ul class="cioff-agenda">
+					<li class="cioff-agenda__item"><div class="cioff-agenda__date" aria-hidden="true"><span>14</span>nov.</div><div class="cioff-agenda__texte"><h3 class="cioff-agenda__titre"><a href="#">Assemblée générale</a></h3><p class="cioff-agenda__quand">Samedi 14 novembre 2026 à 10h00</p></div></li>
+					<li class="cioff-agenda__item"><div class="cioff-agenda__date" aria-hidden="true"><span>23</span>janv.</div><div class="cioff-agenda__texte"><h3 class="cioff-agenda__titre"><a href="#">Réunion des festivals</a></h3><p class="cioff-agenda__quand">Samedi 23 janvier 2027 — Visioconférence</p></div></li>
+				</ul>
+			</div>
+			<div>
+				<h2>Prochaines réunions CIOFF Jeunes</h2>
+				<ul class="cioff-agenda">
+					<li class="cioff-agenda__item"><div class="cioff-agenda__date" aria-hidden="true"><span>5</span>déc.</div><div class="cioff-agenda__texte"><h3 class="cioff-agenda__titre"><a href="#">Week-end CIOFF Jeunes</a></h3><p class="cioff-agenda__quand">Du 5 au 6 décembre 2026 — Lyon</p></div></li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="bande">
+		<div class="large">
+			<h2>Nos adhérents partout en France</h2>
+			<div data-annuaire data-hauteur="420" data-liste="0"></div>
+			<div class="boutons"><a class="bouton" href="annuaire.html">Ouvrir l'annuaire complet</a></div>
+		</div>
+	</section>
+
+	<section class="bande bande--sable">
+		<div class="large">
+			<h2>Suivez-nous</h2>
+			<p>Le fil Instagram du CIOFF France s'affichera ici (extension Smash Balloon).</p>
+			<div class="insta" aria-hidden="true">
+				<span style="background:#1f3f7a"></span><span style="background:#c0501a"></span><span style="background:#f0a04b"></span>
+				<span style="background:#2e8b57"></span><span style="background:#4a90d9"></span><span style="background:#14264a"></span>
+			</div>
+		</div>
+	</section>
+
+	<section class="bande">
+		<div class="large grille-2" style="align-items:center">
+			<div><h2>Un réseau international</h2><p>Le CIOFF France est la section nationale du CIOFF International, présent dans une centaine de pays et partenaire officiel de l'UNESCO.</p></div>
+			<div><a class="bouton" href="https://www.cioff.org" target="_blank" rel="noopener">Visiter le site du CIOFF International ↗</a></div>
+		</div>
+	</section>
+</main>
+<div data-pied></div>
+<script src="assets/data.js"></script>
+<script src="assets/layout.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
+<script src="assets/annuaire.js"></script>
+</body>
+</html>
