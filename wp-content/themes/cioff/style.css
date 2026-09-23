@@ -1,0 +1,53 @@
+/*
+Theme Name:        CIOFF France
+Theme URI:         https://cioff-france.org
+Description:       Thème du CIOFF France, construit sur l'éditeur de blocs : textes, images, couleurs et menus se modifient visuellement, sans code. À utiliser avec l'extension « CIOFF France – Fonctions du site ».
+Author:            CIOFF France – Commission Communication
+Version:           1.0.0
+Requires at least: 6.5
+Requires PHP:      8.0
+License:           GPL-2.0-or-later
+Text Domain:       cioff
+*/
+
+/* ---------- En-tête ---------- */
+.cioff-entete { border-bottom: 1px solid var(--wp--preset--color--bordure); background: var(--wp--preset--color--blanc); position: relative; z-index: 20; }
+.cioff-entete__haut { font-size: .85rem; padding-block: .4rem; gap: 1.25rem; }
+.cioff-entete__haut a { text-decoration: none; }
+.cioff-entete__haut .cioff-intl.wp-element-button { background: transparent; color: var(--wp--preset--color--bleu); padding: 0; font-weight: 600; font-size: .85rem; }
+.cioff-entete__haut .cioff-intl.wp-element-button:hover { color: var(--wp--preset--color--terre); background: transparent; }
+.cioff-entete__principal { padding-block: .75rem 1rem; }
+.cioff-entete .wp-block-site-logo img { display: block; }
+.cioff-connexion a { font-weight: 600; }
+
+/* ---------- Sections de page ---------- */
+.cioff-bande { padding-block: var(--wp--preset--spacing--50); }
+.cioff-hero { padding-block: var(--wp--preset--spacing--60); }
+.has-bleu-nuit-background-color, .has-bleu-background-color, .has-terre-background-color { color: var(--wp--preset--color--blanc); }
+.has-bleu-nuit-background-color :where(h1, h2, h3, h4, a:not(.wp-element-button)),
+.has-bleu-background-color :where(h1, h2, h3, h4, a:not(.wp-element-button)),
+.has-terre-background-color :where(h1, h2, h3, h4, a:not(.wp-element-button)) { color: inherit; }
+.cioff-hero .is-style-outline .wp-block-button__link { color: var(--wp--preset--color--blanc); border-color: currentColor; }
+.cioff-surtitre { text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; font-weight: 700; opacity: .85; }
+.is-style-lead { font-size: var(--wp--preset--font-size--large); line-height: 1.55; color: var(--wp--preset--color--gris); }
+.wp-block-button.is-style-outline .wp-block-button__link { background: transparent; color: var(--wp--preset--color--bleu); border: 2px solid currentColor; }
+.wp-block-button.is-style-outline .wp-block-button__link:hover { background: var(--wp--preset--color--bleu); color: var(--wp--preset--color--blanc); border-color: var(--wp--preset--color--bleu); }
+
+/* Rappel « à compléter » visible seulement pour repérer les textes provisoires. */
+.cioff-a-completer { background: #fff6d6; border: 1px dashed #d9a400; padding: .5rem .8rem; border-radius: 6px; font-size: .95rem; }
+
+/* ---------- Pied de page ---------- */
+.cioff-pied { font-size: .95rem; }
+.cioff-pied a { color: inherit; }
+.cioff-pied h2, .cioff-pied h3 { color: inherit; }
+.cioff-pied .wp-block-navigation { gap: .4rem; }
+.cioff-reseaux { list-style: none; margin: 0; padding: 0; display: flex; gap: .6rem; }
+.cioff-reseaux a { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,.12); color: inherit; transition: background .15s; }
+.cioff-reseaux a:hover { background: var(--wp--preset--color--terre); }
+
+/* ---------- Divers ---------- */
+.wp-block-post-featured-image img { border-radius: 12px; }
+:where(.wp-site-blocks) :focus-visible { outline: 3px solid var(--wp--preset--color--bleu-clair); outline-offset: 2px; }
+.screen-reader-text:focus { clip: auto !important; clip-path: none; height: auto; width: auto; z-index: 100000; }
+
+.cioff-pied .wp-block-separator { opacity: .25; }

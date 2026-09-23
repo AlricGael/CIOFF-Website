@@ -1,0 +1,162 @@
+/* CIOFF France – styles des blocs du plugin.
+   Les couleurs viennent du thème (theme.json) avec des valeurs de secours. */
+
+.cioff-annuaire, .cioff-fiche, .cioff-form, .cioff-agenda, .cioff-membres, .cioff-login, .cioff-theme-annuel {
+	--c-texte: var(--wp--preset--color--encre, #1b2333);
+	--c-doux: var(--wp--preset--color--gris, #5b6472);
+	--c-fond: var(--wp--preset--color--blanc, #fff);
+	--c-sable: var(--wp--preset--color--sable, #f6f1e9);
+	--c-bord: var(--wp--preset--color--bordure, #dcd6cc);
+	--c-accent: var(--wp--preset--color--bleu, #1f3f7a);
+	--c-chaud: var(--wp--preset--color--terre, #c0501a);
+	--rayon: 10px;
+}
+
+/* ---------- Badges de type ---------- */
+.cioff-badge {
+	display: inline-flex; align-items: center; gap: .35em;
+	padding: .2em .65em .2em .45em; border-radius: 999px;
+	background: color-mix(in srgb, var(--cioff-type) 14%, white);
+	color: color-mix(in srgb, var(--cioff-type) 80%, black);
+	border: 1px solid color-mix(in srgb, var(--cioff-type) 35%, white);
+	font-size: .8rem; font-weight: 600; line-height: 1.4; white-space: nowrap;
+}
+.cioff-badge svg { width: 1.05em; height: 1.05em; flex: none; color: var(--cioff-type); }
+
+/* ---------- Notices ---------- */
+.cioff-notice { padding: 1rem 1.25rem; border-radius: var(--rayon, 10px); background: #eef3fb; border-left: 4px solid #1f3f7a; margin: 0 0 1.5rem; }
+.cioff-notice--success { background: #edf7ef; border-color: #2e8b57; }
+.cioff-notice--warning { background: #fff6e6; border-color: #d98a00; }
+.cioff-notice--error { background: #fdeeee; border-color: #c62828; }
+
+/* ---------- Formulaires ---------- */
+.cioff-form { max-width: 760px; }
+.cioff-section { border: 1px solid var(--c-bord); border-radius: var(--rayon); padding: 1.25rem 1.5rem .5rem; margin: 0 0 1.5rem; background: var(--c-fond); }
+.cioff-section legend { font-weight: 700; font-size: 1.1rem; padding: 0 .5rem; margin-left: -.5rem; }
+.cioff-field { margin: 0 0 1.1rem; }
+.cioff-field > label { display: block; font-weight: 600; margin-bottom: .35rem; }
+.cioff-field input[type=text], .cioff-field input[type=email], .cioff-field input[type=tel], .cioff-field input[type=url],
+.cioff-field input[type=date], .cioff-field input[type=time], .cioff-field input[type=search], .cioff-field select, .cioff-field textarea {
+	width: 100%; box-sizing: border-box; padding: .65rem .8rem; font: inherit; color: inherit;
+	border: 1px solid #b9b2a6; border-radius: 6px; background: #fff;
+}
+.cioff-field input:focus, .cioff-field select:focus, .cioff-field textarea:focus { outline: 3px solid color-mix(in srgb, var(--c-accent) 35%, transparent); border-color: var(--c-accent); }
+.cioff-field input[type=file] { font: inherit; }
+.cioff-field-row { display: grid; gap: 0 1rem; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+.cioff-help { font-size: .88rem; color: var(--c-doux); margin: .35rem 0 0; }
+.cioff-req { color: #c62828; }
+.cioff-check { display: flex; gap: .6rem; align-items: flex-start; font-weight: 400 !important; }
+.cioff-check input { margin-top: .3rem; }
+.cioff-media__preview img { max-width: 220px; height: auto; border-radius: 6px; display: block; margin-bottom: .5rem; }
+.cioff-gallery-edit { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: .75rem; }
+.cioff-gallery-edit__item { display: flex; flex-direction: column; gap: .25rem; font-size: .85rem; font-weight: 400 !important; }
+.cioff-gallery-edit__item img { width: 110px; height: 110px; object-fit: cover; border-radius: 6px; }
+.cioff-hp { position: absolute !important; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.cioff-status { margin-bottom: 1.5rem; }
+.cioff-login { max-width: 440px; padding: 1.5rem; border: 1px solid var(--c-bord); border-radius: var(--rayon); background: var(--c-fond); }
+.cioff-login label { display: block; font-weight: 600; margin-bottom: .3rem; }
+.cioff-login input[type=text], .cioff-login input[type=password] { width: 100%; box-sizing: border-box; padding: .6rem .8rem; font: inherit; border: 1px solid #b9b2a6; border-radius: 6px; }
+.cioff-login .login-remember label { font-weight: 400; }
+
+/* ---------- Annuaire / carte ---------- */
+.cioff-annuaire__outils { display: grid; gap: 1rem 2rem; grid-template-columns: minmax(220px, 1fr) 2fr; align-items: start; margin-bottom: 1rem; }
+.cioff-annuaire__recherche label, .cioff-annuaire__filtres legend { display: block; font-weight: 700; margin-bottom: .4rem; padding: 0; }
+.cioff-annuaire__recherche input { width: 100%; box-sizing: border-box; padding: .7rem .9rem; font: inherit; border: 1px solid #b9b2a6; border-radius: 999px; }
+.cioff-annuaire__filtres { border: 0; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.cioff-annuaire__filtres legend { width: 100%; }
+.cioff-filtre { position: relative; display: inline-flex; align-items: center; gap: .45rem; cursor: pointer; padding: .4rem .8rem .4rem .45rem; border-radius: 999px; border: 1.5px solid var(--cioff-type); font-size: .9rem; background: #fff; user-select: none; transition: background .15s, opacity .15s; }
+.cioff-filtre input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.cioff-filtre__pastille { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--cioff-type); color: #fff; }
+.cioff-filtre__pastille svg { width: 14px; height: 14px; }
+.cioff-filtre:has(input:checked) { background: color-mix(in srgb, var(--cioff-type) 12%, white); }
+.cioff-filtre:has(input:not(:checked)) { opacity: .55; border-style: dashed; }
+.cioff-filtre:has(input:focus-visible) { outline: 3px solid var(--c-accent); outline-offset: 2px; }
+.cioff-filtre__nb { color: var(--c-doux); }
+.cioff-annuaire__carte { border-radius: var(--rayon); overflow: hidden; border: 1px solid var(--c-bord); z-index: 0; }
+.cioff-annuaire__liste-entete { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin: 1.5rem 0 .75rem; flex-wrap: wrap; }
+.cioff-annuaire__liste-entete select { padding: .4rem .6rem; font: inherit; border-radius: 6px; border: 1px solid #b9b2a6; margin-left: .4rem; }
+.cioff-annuaire__resultat { margin: 0; font-weight: 700; }
+.cioff-annuaire__liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.cioff-annuaire__plus { text-align: center; margin-top: 1.5rem; }
+.cioff-carte-adherent a { display: flex; gap: .9rem; align-items: center; padding: .75rem; border: 1px solid var(--c-bord); border-radius: var(--rayon); background: #fff; text-decoration: none; color: inherit; height: 100%; box-sizing: border-box; transition: border-color .15s, box-shadow .15s; }
+.cioff-carte-adherent a:hover, .cioff-carte-adherent a:focus-visible { border-color: var(--c-accent); box-shadow: 0 4px 14px rgba(20, 30, 60, .08); }
+.cioff-carte-adherent img, .cioff-carte-adherent__vide { width: 72px; height: 72px; flex: none; border-radius: 8px; object-fit: cover; }
+.cioff-carte-adherent__vide { display: grid; place-items: center; background: color-mix(in srgb, var(--cioff-type) 14%, white); color: var(--cioff-type); }
+.cioff-carte-adherent__vide svg { width: 30px; height: 30px; }
+.cioff-carte-adherent__texte { display: flex; flex-direction: column; gap: .2rem; align-items: flex-start; min-width: 0; }
+.cioff-carte-adherent__texte strong { font-size: 1.02rem; line-height: 1.3; }
+.cioff-carte-adherent__texte > span:last-child { color: var(--c-doux); font-size: .88rem; }
+.cioff-annuaire__aucun { grid-column: 1 / -1; padding: 2rem; text-align: center; color: var(--c-doux); }
+
+/* Marqueurs */
+.cioff-marqueur { background: none; border: 0; }
+.cioff-marqueur__pin { position: relative; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: var(--cioff-type); border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,.35); color: #fff; }
+.cioff-marqueur__pin svg { transform: rotate(45deg); width: 15px; height: 15px; }
+.cioff-popup img { width: 100%; height: 120px; object-fit: cover; border-radius: 6px; margin-bottom: .5rem; }
+.cioff-popup h3 { margin: .4rem 0 .2rem; font-size: 1.05rem; }
+.cioff-popup p { margin: .3rem 0; }
+.cioff-popup__lieu { color: #5b6472; font-size: .88rem; }
+.leaflet-container { font: inherit; }
+.leaflet-popup-content { margin: 12px 14px; }
+
+/* ---------- Fiche adhérent ---------- */
+.cioff-fiche__meta { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; }
+.cioff-fiche__lieu { color: var(--c-doux); }
+.cioff-fiche__grille { display: grid; gap: 2.5rem; grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr); margin-top: 1.5rem; }
+.cioff-fiche__bloc { margin-bottom: 2rem; }
+.cioff-fiche h2 { font-size: 1.25rem; margin: 0 0 .6rem; }
+.cioff-fiche__cote > * { margin-bottom: 1.75rem; }
+.cioff-fiche__affiche img { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+.cioff-fiche__affiche figcaption { font-size: .85rem; color: var(--c-doux); margin-top: .4rem; }
+.cioff-fiche__contact { background: var(--c-sable); padding: 1.25rem; border-radius: var(--rayon); }
+.cioff-fiche__contact ul { list-style: none; padding: 0; margin: 0 0 .5rem; }
+.cioff-fiche__contact li { margin-bottom: .35rem; word-break: break-word; }
+.cioff-galerie { display: grid; gap: .6rem; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.cioff-galerie__item img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; display: block; }
+.cioff-video { margin-bottom: 1rem; }
+.cioff-video iframe { width: 100%; height: auto; aspect-ratio: 16 / 9; }
+.cioff-minicarte { height: 220px; border-radius: var(--rayon); overflow: hidden; border: 1px solid var(--c-bord); z-index: 0; }
+.cioff-partage ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .4rem; }
+.cioff-partage a { display: inline-block; padding: .35rem .8rem; border: 1px solid var(--c-bord); border-radius: 999px; text-decoration: none; font-size: .88rem; }
+.cioff-partage a:hover { border-color: var(--c-accent); }
+.cioff-partage h2 { font-size: 1rem; }
+
+/* ---------- Agenda ---------- */
+.cioff-agenda { list-style: none; margin: 0 0 1.5rem; padding: 0; display: grid; gap: .9rem; }
+.cioff-agenda__item { display: flex; gap: 1rem; align-items: flex-start; }
+.cioff-agenda__date { flex: none; width: 58px; text-align: center; border-radius: 8px; background: var(--c-accent); color: #fff; padding: .35rem 0 .45rem; text-transform: uppercase; font-size: .72rem; font-weight: 700; letter-spacing: .04em; line-height: 1.1; }
+.cioff-agenda__date span { display: block; font-size: 1.5rem; letter-spacing: 0; }
+.cioff-agenda__texte { min-width: 0; }
+.cioff-agenda__cat { margin: 0; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; color: var(--c-chaud); font-weight: 700; }
+.cioff-agenda__titre { margin: .1rem 0 .15rem !important; font-size: 1.08rem !important; line-height: 1.3; }
+.cioff-agenda__titre a { text-decoration: none; color: inherit; }
+.cioff-agenda__titre a:hover { text-decoration: underline; }
+.cioff-agenda__quand { margin: 0; color: var(--c-doux); font-size: .92rem; }
+.cioff-agenda__vide { color: var(--c-doux); font-style: italic; }
+.cioff-evt-details { font-size: 1.05rem; padding: 1rem 1.25rem; background: var(--c-sable, #f6f1e9); border-radius: 10px; margin-bottom: 2rem; }
+.cioff-evt-details p { margin: .3rem 0; }
+.cioff-evt-details__quand { font-weight: 700; }
+
+/* ---------- Thème annuel ---------- */
+.cioff-theme-annuel { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 2rem; align-items: center; background: var(--c-sable); border-radius: 16px; overflow: hidden; margin: 2rem 0; }
+.cioff-theme-annuel:not(:has(.cioff-theme-annuel__image)) { grid-template-columns: 1fr; }
+.cioff-theme-annuel__image img { width: 100%; height: 100%; min-height: 260px; object-fit: cover; display: block; }
+.cioff-theme-annuel__texte { padding: 2rem 2rem 2rem 0; }
+.cioff-theme-annuel:not(:has(.cioff-theme-annuel__image)) .cioff-theme-annuel__texte { padding: 2rem; }
+.cioff-theme-annuel__surtitre { text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; font-weight: 700; color: var(--c-chaud); margin: 0; }
+.cioff-theme-annuel h2 { margin: .3rem 0 .8rem; }
+
+/* ---------- Tableaux (intranet) ---------- */
+.cioff-table-scroll { overflow-x: auto; }
+.cioff-table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.cioff-table th, .cioff-table td { text-align: left; padding: .6rem .75rem; border-bottom: 1px solid var(--c-bord); }
+.cioff-table th { background: var(--c-sable); }
+.cioff-membres__filtre { padding: .5rem .8rem; font: inherit; border: 1px solid #b9b2a6; border-radius: 6px; margin-left: .4rem; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 781px) {
+	.cioff-annuaire__outils, .cioff-fiche__grille, .cioff-theme-annuel { grid-template-columns: 1fr; }
+	.cioff-theme-annuel__texte { padding: 0 1.5rem 1.5rem; }
+	.cioff-annuaire__carte { height: 420px !important; }
+	.cioff-section { padding: 1rem 1rem .25rem; }
+}
