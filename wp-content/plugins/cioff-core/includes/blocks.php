@@ -213,10 +213,11 @@ function cioff_render_reseaux() {
 		$url = cioff_option( $key );
 		if ( $url ) {
 			$out .= sprintf(
-				'<li><a href="%1$s" target="_blank" rel="noopener" aria-label="%2$s"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">%3$s</svg></a></li>',
+				'<li><a class="cioff-reseaux__%4$s" href="%1$s" target="_blank" rel="noopener" aria-label="%2$s"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">%3$s</svg></a></li>',
 				esc_url( $url ),
 				esc_attr( $icon[0] . ' du CIOFF France' ),
-				$icon[1]
+				$icon[1],
+				$key
 			);
 		}
 	}

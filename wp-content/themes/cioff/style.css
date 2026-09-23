@@ -11,7 +11,7 @@ Text Domain:       cioff
 */
 
 /* ---------- En-tête ---------- */
-.cioff-entete { border-bottom: 1px solid var(--wp--preset--color--bordure); background: var(--wp--preset--color--blanc); position: relative; z-index: 20; }
+.cioff-entete { border-bottom: 1px solid var(--wp--preset--color--bordure); background: var(--wp--preset--color--blanc); position: relative; z-index: 20; padding-top: 6px; }
 .cioff-entete__haut { font-size: .85rem; padding-block: .4rem; gap: 1.25rem; }
 .cioff-entete__haut a { text-decoration: none; }
 .cioff-entete__haut .cioff-intl.wp-element-button { background: transparent; color: var(--wp--preset--color--bleu); padding: 0; font-weight: 600; font-size: .85rem; }
@@ -41,9 +41,61 @@ Text Domain:       cioff
 .cioff-pied a { color: inherit; }
 .cioff-pied h2, .cioff-pied h3 { color: inherit; }
 .cioff-pied .wp-block-navigation { gap: .4rem; }
-.cioff-reseaux { list-style: none; margin: 0; padding: 0; display: flex; gap: .6rem; }
-.cioff-reseaux a { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: rgba(255,255,255,.12); color: inherit; transition: background .15s; }
-.cioff-reseaux a:hover { background: var(--wp--preset--color--terre); }
+
+/* Réseaux sociaux : boutons carrés aux couleurs des réseaux. */
+.cioff-reseaux { list-style: none; margin: 0; padding: 0; display: flex; gap: .45rem; }
+.cioff-reseaux a { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 8px; background: var(--wp--preset--color--bleu); color: #fff !important; transition: transform .15s, filter .15s; }
+.cioff-reseaux a:hover { transform: translateY(-2px); filter: brightness(1.1); }
+.cioff-reseaux__facebook { background: #3b5998 !important; }
+.cioff-reseaux__instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%) !important; }
+.cioff-reseaux__youtube { background: #d62828 !important; }
+.cioff-entete__haut .cioff-reseaux a { width: 28px; height: 28px; border-radius: 6px; }
+.cioff-entete__haut .cioff-reseaux svg { width: 16px; height: 16px; }
+
+/* ---------- Couleurs du monde (inspiration Gauargi) ---------- */
+:root { --cioff-ruban: linear-gradient(90deg, #0096c7 0 14.28%, #f0a04b 0 28.57%, #c2185b 0 42.85%, #1f3f7a 0 57.14%, #d62828 0 71.42%, #2e8b57 0 85.71%, #f5b700 0); }
+.cioff-entete::before, .cioff-pied::before, .cioff-hero::after { content: ""; display: block; height: 6px; background: var(--cioff-ruban); }
+.cioff-entete::before { position: absolute; inset: 0 0 auto; }
+.cioff-pied { position: relative; }
+.cioff-pied::before { position: absolute; inset: 0 0 auto; }
+.cioff-hero { position: relative; overflow: hidden; }
+.cioff-hero::after { position: absolute; inset: auto 0 0; height: 8px; }
+.cioff-hero::before { content: ""; position: absolute; right: -8vw; top: -12vw; width: 38vw; height: 38vw; border-radius: 50%; background: radial-gradient(circle, rgba(240,160,75,.35), rgba(194,24,91,.18) 45%, transparent 70%); pointer-events: none; }
+.cioff-hero h1 { max-width: 16ch; }
+.cioff-hero > * { position: relative; }
+
+/* Nom du site multicolore, tant qu'aucun logo n'est ajouté. */
+.cioff-entete .wp-block-site-title a { background: linear-gradient(90deg, #0096c7, #f0a04b 22%, #c2185b 42%, #1f3f7a 60%, #d62828 76%, #2e8b57 90%, #f5b700); -webkit-background-clip: text; background-clip: text; color: transparent !important; font-size: 1.7rem; letter-spacing: -.01em; }
+
+/* Chiffres clés. */
+.cioff-bande--serree { padding-block: var(--wp--preset--spacing--40); border-bottom: 1px solid var(--wp--preset--color--bordure); }
+.cioff-chiffres { gap: 1.5rem; text-align: center; }
+.cioff-chiffre { margin: 0; color: var(--wp--preset--color--gris); line-height: 1.3; }
+.cioff-chiffre strong { display: block; font-family: var(--wp--preset--font-family--titres); font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.1; color: var(--wp--preset--color--bleu); }
+.cioff-chiffres > .wp-block-column:nth-child(4n+2) .cioff-chiffre strong { color: var(--wp--preset--color--terre); }
+.cioff-chiffres > .wp-block-column:nth-child(4n+3) .cioff-chiffre strong { color: var(--wp--preset--color--vert); }
+.cioff-chiffres > .wp-block-column:nth-child(4n+4) .cioff-chiffre strong { color: var(--wp--preset--color--magenta); }
+
+/* Cartes « S'engager », commissions… */
+.cioff-cartes { gap: 1.25rem; }
+.cioff-carte { height: 100%; box-sizing: border-box; background: #fff; border-radius: 14px; padding: 1.5rem 1.4rem 1.25rem; border-top: 6px solid var(--cioff-carte, var(--wp--preset--color--bleu)); box-shadow: 0 6px 22px rgba(20, 38, 74, .08); }
+.cioff-carte h3 { margin-top: 0; }
+.cioff-carte--terre { --cioff-carte: var(--wp--preset--color--terre); }
+.cioff-carte--vert { --cioff-carte: var(--wp--preset--color--vert); }
+.cioff-carte--ocre { --cioff-carte: var(--wp--preset--color--ocre); }
+.cioff-carte--bleu { --cioff-carte: var(--wp--preset--color--bleu); }
+.cioff-carte--magenta { --cioff-carte: var(--wp--preset--color--magenta); }
+
+/* Actualités (derniers articles). */
+.wp-block-latest-posts.is-grid li { background: #fff; border: 1px solid var(--wp--preset--color--bordure); border-radius: 12px; padding: 1rem; }
+.wp-block-latest-posts__featured-image img { border-radius: 8px; }
+.wp-block-latest-posts__post-title { font-weight: 700; text-decoration: none; }
+.wp-block-latest-posts__post-date { color: var(--wp--preset--color--gris); }
+
+/* Partenaires. */
+.cioff-partenaires { text-align: center; border-top: 1px solid var(--wp--preset--color--bordure); }
+.cioff-partenaires .wp-block-gallery img { max-height: 90px; width: auto !important; object-fit: contain; filter: grayscale(1); opacity: .8; transition: filter .2s, opacity .2s; }
+.cioff-partenaires .wp-block-gallery img:hover { filter: none; opacity: 1; }
 
 /* ---------- Divers ---------- */
 .wp-block-post-featured-image img { border-radius: 12px; }

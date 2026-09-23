@@ -21,6 +21,8 @@ function cioff_default_options() {
 			array( 'label' => 'Communication', 'emails' => '' ),
 			array( 'label' => 'Festival', 'emails' => '' ),
 			array( 'label' => 'Groupe', 'emails' => '' ),
+			array( 'label' => 'Label CIOFF', 'emails' => 'label@cioff-france.org' ),
+			array( 'label' => 'CIOFF Jeunes', 'emails' => 'contact@cioffjeune.fr' ),
 			array( 'label' => 'Partenariat', 'emails' => '' ),
 			array( 'label' => 'Commande de matériel', 'emails' => '' ),
 			array( 'label' => 'Autre', 'emails' => '' ),
@@ -177,6 +179,7 @@ function cioff_render_settings_page() {
 
 			<?php submit_button( 'Enregistrer' ); ?>
 		</form>
+		<?php cioff_render_import_box(); ?>
 	</div>
 	<script>
 	( function () {

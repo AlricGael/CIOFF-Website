@@ -29,7 +29,7 @@
 
 		<h2>Nouvelles fiches (1)</h2>
 		<div class="carte-admin" data-carte>
-			<h3>Les Enfants de la Gavotte <span data-badge="groupe-associe"></span></h3>
+			<h3>Groupe d'exemple (fictif) <span data-badge="groupe-associe"></span></h3>
 			<p>Envoyé par Anne M. (anne@exemple.fr) le 21 septembre 2026</p>
 			<table class="tableau-admin"><tbody>
 				<tr><th style="width:220px">Présentation</th><td>Groupe d'enfants de 6 à 16 ans qui fait vivre les danses du pays vannetais…</td></tr>
@@ -46,13 +46,13 @@
 
 		<h2>Modifications de fiches publiées (1)</h2>
 		<div class="carte-admin" data-carte>
-			<h3>Les Sabots d'Auvergne <span data-badge="groupe-labellise"></span></h3>
+			<h3>Bleuniadur <span data-badge="groupe-labellise"></span></h3>
 			<p>Proposée le 22 septembre 2026 à 18:42. Seuls les champs modifiés sont affichés ; la version actuelle reste en ligne en attendant.</p>
 			<table class="tableau-admin">
 				<thead><tr><th style="width:200px">Champ</th><th>Version en ligne</th><th>Modification proposée</th></tr></thead>
 				<tbody>
-					<tr><th>Catégorie</th><td>Adultes</td><td class="nouveau">Intergénérationnel</td></tr>
-					<tr><th>Tournées à l'étranger</th><td>Mexique (2019), Pologne (2022)</td><td class="nouveau">Mexique (2019), Pologne (2022), Corée du Sud (2025)</td></tr>
+					<tr><th>Site web</th><td>www.bleuniadur.com</td><td class="nouveau">www.bleuniadur.bzh (exemple)</td></tr>
+					<tr><th>Tournées à l'étranger</th><td>—</td><td class="nouveau">États-Unis, Italie, République tchèque, Pologne, Belgique, Hongrie, Roumanie, Autriche</td></tr>
 				</tbody>
 			</table>
 			<form data-decision>
@@ -63,8 +63,8 @@
 
 		<h2>Événements proposés (1)</h2>
 		<div class="carte-admin" data-carte>
-			<h3>Soirée des 60 ans des Sabots d'Auvergne</h3>
-			<p><strong>Samedi 17 octobre 2026 à 20h00</strong> — Clermont-Ferrand, salle des fêtes</p>
+			<h3>Soirée anniversaire d'un groupe (exemple)</h3>
+			<p><strong>Samedi 17 octobre 2026 à 20h00</strong> — salle des fêtes (exemple)</p>
 			<p>Envoyé par Paul V. (paul@exemple.fr) le 20 septembre 2026</p>
 			<form data-decision>
 				<p><label>Commentaire pour l'adhérent (obligatoire en cas de renvoi) :<br><textarea rows="2"></textarea></label></p>
@@ -73,6 +73,7 @@
 		</div>
 	</div>
 </div>
+<script src="assets/adherents.js"></script>
 <script src="assets/data.js"></script>
 <script>
 document.querySelectorAll( '[data-badge]' ).forEach( function ( el ) { el.outerHTML = CIOFF.badge( el.getAttribute( 'data-badge' ) ); } );

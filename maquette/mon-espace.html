@@ -16,11 +16,11 @@
 		<p>Gérez ici la fiche de votre structure dans l'annuaire. Chaque envoi est relu par le CIOFF France avant publication.</p>
 	</div>
 
-	<div class="cioff-notice">Aperçu : vous êtes connecté(e) en tant que <strong>responsable du groupe « Les Sabots d'Auvergne »</strong> (fictif). L'adhérent ne voit jamais l'administration WordPress.</div>
+	<div class="cioff-notice">Aperçu : vous êtes connecté(e) en tant que <strong>responsable du groupe « Bleuniadur »</strong> (compte d'exemple). L'adhérent ne voit jamais l'administration WordPress.</div>
 
 	<div class="cioff-status">
 		<p>Type de fiche : <span data-badge="groupe-labellise"></span></p>
-		<p><strong>Votre fiche est en ligne.</strong> <a href="fiche.html">Voir ma fiche publique</a></p>
+		<p><strong>Votre fiche est en ligne.</strong> <a href="fiche.html?id=37">Voir ma fiche publique</a></p>
 	</div>
 
 	<form class="cioff-form" onsubmit="event.preventDefault(); document.getElementById('merci').hidden = false; document.getElementById('merci').scrollIntoView({behavior:'smooth', block:'center'});">
@@ -28,22 +28,22 @@
 
 		<fieldset class="cioff-section">
 			<legend>Présentation</legend>
-			<div class="cioff-field"><label for="t">Nom de la structure <span class="cioff-req">*</span></label><input type="text" id="t" value="Les Sabots d'Auvergne" required></div>
-			<div class="cioff-field"><label for="d">Présentation</label><textarea id="d" rows="6">Fondé en 1962, notre groupe fait vivre les bourrées et les chants du Massif central, en France comme à l'étranger.</textarea><p class="cioff-help">Laissez une ligne vide entre deux paragraphes.</p></div>
+			<div class="cioff-field"><label for="t">Nom de la structure <span class="cioff-req">*</span></label><input type="text" id="t" value="Bleuniadur" required></div>
+			<div class="cioff-field"><label for="d">Présentation</label><textarea id="d" rows="6">Ensemble des arts et traditions populaires du Léon, ballet de pays fondé en 1978 à Saint-Pol-de-Léon.</textarea><p class="cioff-help">Laissez une ligne vide entre deux paragraphes.</p></div>
 			<div class="cioff-field"><label for="p">Photo principale</label><input type="file" id="p" accept="image/*"><p class="cioff-help">Format paysage conseillé (au moins 1200 px de large).</p></div>
 		</fieldset>
 
 		<fieldset class="cioff-section">
 			<legend>Localisation</legend>
-			<div class="cioff-field"><label for="v">Ville <span class="cioff-req">*</span></label><input type="text" id="v" value="Clermont-Ferrand" required></div>
+			<div class="cioff-field"><label for="v">Ville <span class="cioff-req">*</span></label><input type="text" id="v" value="Saint-Pol-de-Léon" required></div>
 			<div class="cioff-field"><label for="a">Adresse (facultatif)</label><input type="text" id="a"><p class="cioff-help">Permet de placer le point plus précisément sur la carte. Elle n'est pas affichée sur la fiche.</p></div>
-			<div class="cioff-field"><label for="dep">Département <span class="cioff-req">*</span></label><select id="dep"><option>63 – Puy-de-Dôme</option><option>15 – Cantal</option><option>43 – Haute-Loire</option></select></div>
+			<div class="cioff-field"><label for="dep">Département <span class="cioff-req">*</span></label><select id="dep"><option>29 – Finistère</option><option>22 – Côtes-d'Armor</option><option>56 – Morbihan</option></select></div>
 		</fieldset>
 
 		<fieldset class="cioff-section">
 			<legend>Contact</legend>
 			<div class="cioff-field-row">
-				<div class="cioff-field"><label for="e">E-mail de contact</label><input type="email" id="e" value="contact@exemple.fr"></div>
+				<div class="cioff-field"><label for="e">E-mail de contact</label><input type="email" id="e" value="bleuniadur@gmail.com"></div>
 				<div class="cioff-field"><label for="tel">Téléphone</label><input type="tel" id="tel"></div>
 			</div>
 			<div class="cioff-field"><label for="w">Site web</label><input type="url" id="w" placeholder="https://"></div>
@@ -51,9 +51,9 @@
 
 		<fieldset class="cioff-section">
 			<legend>Le groupe</legend>
-			<div class="cioff-field"><label for="c">Catégorie</label><select id="c"><option>Adultes</option><option>Enfants</option><option selected>Intergénérationnel</option></select></div>
-			<div class="cioff-field"><label for="r">Spécificité et répertoire dansé</label><textarea id="r" rows="3">Bourrées à deux et à trois temps, montagnardes, chants en occitan.</textarea></div>
-			<div class="cioff-field"><label for="to">Tournées à l'étranger</label><textarea id="to" rows="3">Mexique (2019), Pologne (2022), Corée du Sud (2025).</textarea></div>
+			<div class="cioff-field"><label for="c">Catégorie</label><select id="c"><option selected>Adultes</option><option>Enfants</option><option>Intergénérationnel</option></select></div>
+			<div class="cioff-field"><label for="r">Spécificité et répertoire dansé</label><textarea id="r" rows="3">Danses et airs à danser du Léon, issus du collectage.</textarea></div>
+			<div class="cioff-field"><label for="to">Tournées à l'étranger</label><textarea id="to" rows="3">États-Unis, Italie, République tchèque, Pologne, Belgique, Hongrie, Roumanie, Autriche.</textarea></div>
 			<div class="cioff-field"><label for="h">Historique</label><textarea id="h" rows="3"></textarea></div>
 		</fieldset>
 
@@ -67,6 +67,7 @@
 	</form>
 </main>
 <div data-pied></div>
+<script src="assets/adherents.js"></script>
 <script src="assets/data.js"></script>
 <script src="assets/layout.js"></script>
 <script>

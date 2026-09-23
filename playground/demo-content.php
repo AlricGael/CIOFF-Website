@@ -57,100 +57,44 @@ foreach ( $cioff_demo_users as $login => $u ) {
 	$cioff_user_ids[ $login ] = $id;
 }
 
-// Adhérents fictifs : [nom, type, ville, dept, lat, lng].
-$cioff_demo = array(
-	array( 'Festival des Danses du Monde de Kerlann', 'festival', 'Quimper', '29', 47.996, -4.102 ),
-	array( 'Rencontres Folkloriques de la Vallée d’Aure', 'festival', 'Tarbes', '65', 43.233, 0.078 ),
-	array( 'Festival International des Arts de la Rue et du Folklore', 'festival', 'Angers', '49', 47.478, -0.563 ),
-	array( 'Festival des Cultures d’Ailleurs', 'festival', 'Colmar', '68', 48.079, 7.358 ),
-	array( 'Folklores en Fête de Provence', 'festival', 'Aix-en-Provence', '13', 43.529, 5.447 ),
-	array( 'Festival Mondial de la Danse Populaire', 'festival', 'Limoges', '87', 45.833, 1.261 ),
-	array( 'Festival des Montagnes et des Peuples', 'festival-associe', 'Annecy', '74', 45.899, 6.129 ),
-	array( 'Les Journées Folkloriques du Littoral', 'festival-associe', 'La Rochelle', '17', 46.160, -1.151 ),
-	array( 'Festival des Terroirs en Danse', 'festival-associe', 'Dijon', '21', 47.322, 5.041 ),
-	array( 'Festival Traditions du Nord', 'festival-associe', 'Arras', '62', 50.291, 2.777 ),
-	array( 'Ensemble Bro Lann', 'groupe-labellise', 'Vannes', '56', 47.658, -2.760 ),
-	array( 'Les Sabots d’Auvergne', 'groupe-labellise', 'Clermont-Ferrand', '63', 45.778, 3.087 ),
-	array( 'Ballet Traditionnel Basque Itsasoa', 'groupe-labellise', 'Bayonne', '64', 43.493, -1.475 ),
-	array( 'Les Farandoleurs du Rhône', 'groupe-labellise', 'Arles', '13', 43.677, 4.631 ),
-	array( 'Ensemble Alsacien Les Cigognes', 'groupe-labellise', 'Strasbourg', '67', 48.573, 7.752 ),
-	array( 'Cercle Celtique Avel Mor', 'groupe-associe', 'Brest', '29', 48.390, -4.486 ),
-	array( 'Les Bourrées du Limousin', 'groupe-associe', 'Tulle', '19', 45.267, 1.771 ),
-	array( 'Ensemble Corse Voce di u Monte', 'groupe-associe', 'Corte', '2B', 42.306, 9.150 ),
-	array( 'Groupe Folklorique Normand La Pommeraie', 'groupe-associe', 'Caen', '14', 49.183, -0.370 ),
-	array( 'Les Rigaudons Savoyards', 'groupe-associe', 'Chambéry', '73', 45.564, 5.918 ),
-	array( 'Maison des Cultures Populaires', 'membre-participant', 'Toulouse', '31', 43.605, 1.444 ),
-	array( 'Association Patrimoine Vivant', 'membre-participant', 'Lyon', '69', 45.764, 4.836 ),
-	array( 'Conservatoire des Arts Traditionnels', 'membre-participant', 'Paris', '75', 48.857, 2.352 ),
-	array( 'Marie D.', 'membre-individuel', '', '35', 48.15, -1.60 ),
-	array( 'Jean-Paul R.', 'membre-individuel', '', '86', 46.56, 0.40 ),
-	array( 'Karim B.', 'membre-individuel', '', '59', 50.45, 3.20 ),
-);
-
-$cioff_textes = array(
-	'festival'           => "Chaque été, le festival accueille une quinzaine de groupes venus des cinq continents pour une semaine de spectacles, de défilés et d'ateliers.\n\nPlus de 400 bénévoles hébergent et accompagnent les artistes.",
-	'festival-associe'   => 'Un festival à taille humaine qui fait découvrir les traditions d’ici et d’ailleurs.',
-	'groupe-labellise'   => "Danses, chants et costumes traditionnels présentés en France et à l’étranger.\n\nLe groupe compte une quarantaine de danseurs et musiciens.",
-	'groupe-associe'     => 'Un groupe passionné qui fait vivre le répertoire de sa région.',
-	'membre-participant' => 'Structure partenaire des activités du CIOFF France.',
-	'membre-individuel'  => 'Membre adhérent à titre individuel.',
-);
-
+// Adhérents réels de l'ancien site (data/adherents.json de l'extension).
 if ( ! get_posts( array( 'post_type' => 'cioff_adherent', 'posts_per_page' => 1, 'post_status' => 'any' ) ) ) {
-	foreach ( $cioff_demo as $i => $a ) {
-		list( $nom, $type, $ville, $dept, $lat, $lng ) = $a;
-		$author = get_current_user_id();
-		if ( 'Festival des Danses du Monde de Kerlann' === $nom ) {
-			$author = $cioff_user_ids['festival'];
-		} elseif ( 'Les Sabots d’Auvergne' === $nom ) {
-			$author = $cioff_user_ids['groupe'];
-		} elseif ( 'Marie D.' === $nom ) {
-			$author = $cioff_user_ids['membre'];
-		}
-		$id = wp_insert_post(
-			array(
-				'post_type'    => 'cioff_adherent',
-				'post_status'  => 'publish',
-				'post_title'   => $nom,
-				'post_content' => cioff_text_to_blocks( $cioff_textes[ $type ] ),
-				'post_author'  => $author,
-			)
-		);
-		wp_set_object_terms( $id, $type, 'cioff_type' );
-		$meta = array(
-			'_cioff_departement' => $dept,
-			'_cioff_email'       => 'contact@exemple.fr',
-			'_cioff_lat'         => $lat,
-			'_cioff_lng'         => $lng,
-			'_cioff_geo_hash'    => 'demo',
-		);
-		if ( $ville ) {
-			$meta['_cioff_ville']     = $ville;
-			$meta['_cioff_site_web']  = 'https://www.exemple.fr';
-			$meta['_cioff_telephone'] = '02 00 00 00 00';
-		}
-		if ( str_starts_with( $type, 'festival' ) ) {
-			$meta['_cioff_dates']         = "2027 : du 12 au 18 juillet\n2028 : du 10 au 16 juillet\n2029 : du 9 au 15 juillet";
-			$meta['_cioff_programmation'] = 'Mexique, Sénégal, Géorgie, Corée du Sud, Pérou, Estonie…';
-			$meta['_cioff_lien_benevole'] = 'https://www.exemple.fr/benevoles';
-		}
-		if ( str_starts_with( $type, 'groupe' ) ) {
-			$meta['_cioff_categorie']  = 'adultes';
-			$meta['_cioff_repertoire'] = 'Danses et chants traditionnels de la région.';
-			$meta['_cioff_tournees']   = 'Mexique (2019), Pologne (2022), Corée du Sud (2025).';
-		}
-		foreach ( $meta as $k => $v ) {
-			update_post_meta( $id, $k, $v );
+	cioff_import_adherents();
+
+	// Les comptes de démonstration deviennent responsables de deux fiches réelles.
+	$cioff_liens = array(
+		'festival' => 'Confolens – Festival Danses et musiques du monde',
+		'groupe'   => 'Bleuniadur',
+	);
+	foreach ( $cioff_liens as $login => $titre ) {
+		$p = get_posts( array( 'post_type' => 'cioff_adherent', 'title' => $titre, 'posts_per_page' => 1 ) );
+		if ( $p ) {
+			wp_update_post( array( 'ID' => $p[0]->ID, 'post_author' => $cioff_user_ids[ $login ] ) );
 		}
 	}
 
-	// Une nouvelle fiche en attente et une modification proposée, pour la page « À valider ».
+	// Un membre individuel d'exemple (fictif).
+	$indiv = wp_insert_post(
+		array(
+			'post_type'    => 'cioff_adherent',
+			'post_status'  => 'publish',
+			'post_title'   => 'Membre individuel (exemple)',
+			'post_content' => cioff_text_to_blocks( 'Fiche fictive de démonstration : seul le département est affiché.' ),
+			'post_author'  => $cioff_user_ids['membre'],
+		)
+	);
+	wp_set_object_terms( $indiv, 'membre-individuel', 'cioff_type' );
+	foreach ( array( '_cioff_departement' => '35', '_cioff_lat' => 48.15, '_cioff_lng' => -1.62, '_cioff_geo_hash' => 'demo' ) as $k => $v ) {
+		update_post_meta( $indiv, $k, $v );
+	}
+
+	// Une nouvelle fiche en attente (fictive) et une modification proposée, pour la page « À valider ».
 	$pending = wp_insert_post(
 		array(
 			'post_type'    => 'cioff_adherent',
 			'post_status'  => 'pending',
-			'post_title'   => 'Les Enfants de la Gavotte',
-			'post_content' => cioff_text_to_blocks( 'Groupe d’enfants de 6 à 16 ans qui fait vivre les danses du pays vannetais.' ),
+			'post_title'   => 'Groupe d’exemple – en attente de validation',
+			'post_content' => cioff_text_to_blocks( 'Fiche fictive de démonstration envoyée par un adhérent.' ),
 			'post_author'  => $cioff_user_ids['groupe'],
 		)
 	);
@@ -159,18 +103,18 @@ if ( ! get_posts( array( 'post_type' => 'cioff_adherent', 'posts_per_page' => 1,
 		update_post_meta( $pending, $k, $v );
 	}
 
-	$sabots = get_posts( array( 'post_type' => 'cioff_adherent', 'title' => 'Les Sabots d’Auvergne', 'posts_per_page' => 1 ) );
-	if ( $sabots ) {
-		$champs                = cioff_get_field_values( $sabots[0]->ID );
-		$champs['categorie']   = 'intergenerationnel';
-		$champs['tournees']    = 'Mexique (2019), Pologne (2022), Corée du Sud (2025), Japon (2026).';
+	$bleu = get_posts( array( 'post_type' => 'cioff_adherent', 'title' => 'Bleuniadur', 'posts_per_page' => 1 ) );
+	if ( $bleu ) {
+		$champs              = cioff_get_field_values( $bleu[0]->ID );
+		$champs['categorie'] = 'adultes';
+		$champs['tournees']  = 'États-Unis, Italie, République tchèque, Pologne, Belgique, Hongrie, Roumanie, Autriche (exemple de modification).';
 		update_post_meta(
-			$sabots[0]->ID,
+			$bleu[0]->ID,
 			'_cioff_proposition',
 			wp_slash(
 				array(
-					'titre'       => $sabots[0]->post_title,
-					'description' => cioff_blocks_to_text( $sabots[0]->post_content ),
+					'titre'       => $bleu[0]->post_title,
+					'description' => cioff_blocks_to_text( $bleu[0]->post_content ),
 					'photo'       => 0,
 					'champs'      => $champs,
 					'date'        => current_time( 'mysql' ),
@@ -188,9 +132,9 @@ if ( ! get_posts( array( 'post_type' => 'cioff_evenement', 'post_status' => 'pub
 		array( 'Assemblée générale du CIOFF France', '+40 days', '', '10:00', 'Lieu à préciser', 'reunion-cioff-france', true, 'publish' ),
 		array( 'Réunion des festivals', '+95 days', '', '14:00', 'Visioconférence', 'reunion-cioff-france', false, 'publish' ),
 		array( 'Week-end CIOFF Jeunes', '+60 days', '+61 days', '', 'Lyon', 'reunion-cioff-jeunes', false, 'publish' ),
-		array( 'Stage de danses du monde', '+30 days', '', '09:30', 'Angers', 'evenement-adherent', false, 'publish' ),
-		array( 'Journée mondiale du patrimoine immatériel', '+75 days', '', '', 'Partout en France', 'journee-internationale', false, 'publish' ),
-		array( 'Soirée des 60 ans des Sabots d’Auvergne', '+25 days', '', '20:00', 'Clermont-Ferrand', 'evenement-adherent', false, 'pending' ),
+		array( 'Stage de danses du monde (exemple)', '+30 days', '', '09:30', 'Angers', 'evenement-adherent', false, 'publish' ),
+		array( 'Journée internationale (exemple)', '+75 days', '', '', 'Partout en France', 'journee-internationale', false, 'publish' ),
+		array( 'Soirée anniversaire d’un groupe (exemple)', '+25 days', '', '20:00', 'Clermont-Ferrand', 'evenement-adherent', false, 'pending' ),
 	);
 	foreach ( $cioff_evts as $e ) {
 		$id = wp_insert_post(

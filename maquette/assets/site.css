@@ -127,3 +127,55 @@ a:hover { color: var(--wp--preset--color--terre); }
 	.admin__menu { min-height: 0; display: flex; overflow-x: auto; }
 	.admin__menu a { white-space: nowrap; }
 }
+
+/* ---------- Couleurs du monde (inspiration Gauargi) – identique au thème WordPress ---------- */
+:root { --cioff-ruban: linear-gradient(90deg, #0096c7 0 14.28%, #f0a04b 0 28.57%, #c2185b 0 42.85%, #1f3f7a 0 57.14%, #d62828 0 71.42%, #2e8b57 0 85.71%, #f5b700 0); }
+.cioff-entete { padding-top: 6px; }
+.cioff-entete::before, .cioff-pied::before, .hero::before { content: ""; position: absolute; left: 0; right: 0; height: 6px; background: var(--cioff-ruban); }
+.cioff-entete::before, .cioff-pied::before { top: 0; }
+.cioff-pied { position: relative; }
+.hero::before { bottom: 0; height: 8px; z-index: 1; }
+.logo__texte { background: linear-gradient(90deg, #0096c7, #f0a04b 22%, #c2185b 42%, #1f3f7a 60%, #d62828 76%, #2e8b57 90%, #f5b700); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 1.7rem; }
+.cioff-pied .logo__texte { background: none; color: #fff; }
+.cioff-entete__haut { align-items: center; }
+.cioff-entete__haut .cioff-reseaux { margin: 0 !important; gap: .35rem !important; }
+.cioff-entete__haut .cioff-reseaux a { width: 28px; height: 28px; border-radius: 6px; font-size: .8rem; color: #fff; }
+.cioff-reseaux { list-style: none !important; padding: 0 !important; }
+.cioff-reseaux a { border-radius: 8px !important; color: #fff; text-decoration: none; font-weight: 700; }
+.cioff-reseaux__facebook { background: #3b5998 !important; }
+.cioff-reseaux__instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%) !important; }
+.cioff-reseaux__youtube { background: #d62828 !important; }
+
+.chiffres { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; text-align: center; padding-block: 2rem; border-bottom: 1px solid var(--wp--preset--color--bordure); }
+.chiffre { margin: 0; color: var(--wp--preset--color--gris); line-height: 1.3; }
+.chiffre strong { display: block; font: 700 clamp(2.2rem, 5vw, 3.2rem)/1.1 var(--police-titres); color: var(--wp--preset--color--bleu); }
+.chiffre:nth-child(4n+2) strong { color: var(--wp--preset--color--terre); }
+.chiffre:nth-child(4n+3) strong { color: var(--wp--preset--color--vert); }
+.chiffre:nth-child(4n+4) strong { color: #c2185b; }
+
+.cartes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
+.carte { background: #fff; border-radius: 14px; padding: 1.5rem 1.4rem 1.25rem; border-top: 6px solid var(--carte, var(--wp--preset--color--bleu)); box-shadow: 0 6px 22px rgba(20, 38, 74, .08); display: flex; flex-direction: column; }
+.carte h3 { margin-top: 0; }
+.carte p { flex: 1; }
+.carte--terre { --carte: var(--wp--preset--color--terre); }
+.carte--vert { --carte: var(--wp--preset--color--vert); }
+.carte--ocre { --carte: var(--wp--preset--color--ocre); }
+.carte--bleu { --carte: var(--wp--preset--color--bleu); }
+
+.actus { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+.actu { border: 1px solid var(--wp--preset--color--bordure); border-radius: 12px; padding: 1rem; background: #fff; }
+.actu__image { aspect-ratio: 16 / 9; border-radius: 8px; margin-bottom: .75rem; }
+.actu h3 { margin: .2rem 0 .4rem; font-size: 1.1rem; }
+.actu time { color: var(--wp--preset--color--gris); font-size: .88rem; }
+
+.partenaires { text-align: center; border-top: 1px solid var(--wp--preset--color--bordure); }
+.partenaires__logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 2.5rem; margin-top: 1rem; }
+.partenaires__logos span { display: grid; place-items: center; min-width: 140px; height: 70px; padding: 0 1rem; border: 1px dashed var(--wp--preset--color--bordure); border-radius: 8px; color: var(--wp--preset--color--gris); font-weight: 700; }
+
+blockquote.citation { margin: 2rem 0; padding: .5rem 0 .5rem 1.25rem; border-left: 4px solid var(--wp--preset--color--terre); font: italic 1.25rem/1.5 var(--police-titres); color: var(--wp--preset--color--bleu-nuit); }
+.contenu-page h2 { margin-top: 2.5rem; }
+
+@media (max-width: 900px) {
+	.chiffres, .cartes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.actus { grid-template-columns: 1fr; }
+}

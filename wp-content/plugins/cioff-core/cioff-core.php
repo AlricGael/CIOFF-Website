@@ -32,6 +32,7 @@ require_once CIOFF_DIR . 'includes/events.php';
 require_once CIOFF_DIR . 'includes/intranet.php';
 require_once CIOFF_DIR . 'includes/contact.php';
 require_once CIOFF_DIR . 'includes/blocks.php';
+require_once CIOFF_DIR . 'includes/import.php';
 require_once CIOFF_DIR . 'includes/setup.php';
 
 register_activation_hook( __FILE__, 'cioff_activate' );
