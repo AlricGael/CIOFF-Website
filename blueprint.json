@@ -1,0 +1,70 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"meta": {
+		"title": "CIOFF France – démo",
+		"description": "Site du CIOFF France (thème + extension) avec contenu de démonstration fictif.",
+		"author": "CIOFF France"
+	},
+	"landingPage": "/",
+	"preferredVersions": {
+		"php": "8.2",
+		"wp": "latest"
+	},
+	"features": {
+		"networking": true
+	},
+	"login": true,
+	"steps": [
+		{
+			"step": "setSiteLanguage",
+			"language": "fr_FR"
+		},
+		{
+			"step": "setSiteOptions",
+			"options": {
+				"blogname": "CIOFF France",
+				"blogdescription": "Festivals et groupes de folklore en France",
+				"permalink_structure": "/%postname%/",
+				"timezone_string": "Europe/Paris"
+			}
+		},
+		{
+			"step": "installTheme",
+			"themeData": {
+				"resource": "git:directory",
+				"url": "https://github.com/AlricGael/CIOFF-Website",
+				"ref": "main",
+				"path": "wp-content/themes/cioff"
+			},
+			"options": {
+				"activate": true,
+				"targetFolderName": "cioff"
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "git:directory",
+				"url": "https://github.com/AlricGael/CIOFF-Website",
+				"ref": "main",
+				"path": "wp-content/plugins/cioff-core"
+			},
+			"options": {
+				"activate": true,
+				"targetFolderName": "cioff-core"
+			}
+		},
+		{
+			"step": "writeFile",
+			"path": "/wordpress/wp-content/cioff-demo-content.php",
+			"data": {
+				"resource": "url",
+				"url": "https://raw.githubusercontent.com/AlricGael/CIOFF-Website/main/playground/demo-content.php"
+			}
+		},
+		{
+			"step": "runPHP",
+			"code": "<?php require '/wordpress/wp-load.php'; wp_set_current_user( 1 ); require '/wordpress/wp-content/cioff-demo-content.php';"
+		}
+	]
+}
