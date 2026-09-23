@@ -64,8 +64,9 @@ Text Domain:       cioff
 .cioff-hero h1 { max-width: 16ch; }
 .cioff-hero > * { position: relative; }
 
-/* Nom du site multicolore, tant qu'aucun logo n'est ajouté. */
+/* Nom du site : multicolore tant qu'aucun logo n'est présent, sobre à côté du logo officiel. */
 .cioff-entete .wp-block-site-title a { background: linear-gradient(90deg, #0096c7, #f0a04b 22%, #c2185b 42%, #1f3f7a 60%, #d62828 76%, #2e8b57 90%, #f5b700); -webkit-background-clip: text; background-clip: text; color: transparent !important; font-size: 1.7rem; letter-spacing: -.01em; }
+.cioff-entete .wp-block-site-logo + .wp-block-site-title a { background: none; color: var(--wp--preset--color--bleu-nuit) !important; font-size: 1.45rem; }
 
 /* Chiffres clés. */
 .cioff-bande--serree { padding-block: var(--wp--preset--spacing--40); border-bottom: 1px solid var(--wp--preset--color--bordure); }

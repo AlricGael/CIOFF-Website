@@ -23,7 +23,7 @@
 			'<header class="cioff-entete">' +
 			'<div class="large cioff-entete__haut">' + reseaux + '<a href="https://www.cioff.org" target="_blank" rel="noopener">CIOFF International ↗</a><a href="mon-espace.html">Espace adhérent</a></div>' +
 			'<div class="large cioff-entete__principal">' +
-			'<a class="logo" href="index.html"><span class="logo__rond" aria-hidden="true"></span><span class="logo__texte">CIOFF France</span></a>' +
+			'<a class="logo" href="index.html"><img class="logo__image" src="assets/logo-cioff.png" alt="CIOFF" onerror="this.remove()" onload="this.nextSibling.textContent=\'France\'"><span class="logo__texte">CIOFF France</span></a>' +
 			'<nav class="nav" aria-label="Menu principal"><button class="nav__bouton" type="button" aria-expanded="false">☰ Menu</button><ul>' +
 			nav.slice( 1 ).map( function ( n ) {
 				return '<li><a href="' + n[1] + '"' + ( n[0] === page ? ' aria-current="page"' : '' ) + '>' + n[2] + '</a></li>';

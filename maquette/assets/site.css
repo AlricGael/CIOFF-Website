@@ -179,3 +179,9 @@ blockquote.citation { margin: 2rem 0; padding: .5rem 0 .5rem 1.25rem; border-lef
 	.chiffres, .cartes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 	.actus { grid-template-columns: 1fr; }
 }
+
+/* Logo officiel CIOFF (ovale) et couleurs du logo. */
+.logo__image { height: 56px; width: auto; display: block; }
+.logo__image + .logo__texte { background: none; color: var(--wp--preset--color--bleu-nuit); font-size: 1.45rem; }
+.wp-element-button, .bouton { background: #cf2218; }
+.bouton--contour { background: transparent; }

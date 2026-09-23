@@ -55,16 +55,21 @@
 			}
 		},
 		{
-			"step": "writeFile",
-			"path": "/wordpress/wp-content/cioff-demo-content.php",
-			"data": {
-				"resource": "url",
-				"url": "https://raw.githubusercontent.com/AlricGael/CIOFF-Website/main/playground/demo-content.php"
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "git:directory",
+				"url": "https://github.com/AlricGael/CIOFF-Website",
+				"ref": "main",
+				"path": "playground"
+			},
+			"options": {
+				"activate": false,
+				"targetFolderName": "cioff-demo"
 			}
 		},
 		{
 			"step": "runPHP",
-			"code": "<?php require '/wordpress/wp-load.php'; wp_set_current_user( 1 ); require '/wordpress/wp-content/cioff-demo-content.php';"
+			"code": "<?php require '/wordpress/wp-load.php'; wp_set_current_user( 1 ); require WP_PLUGIN_DIR . '/cioff-demo/demo-content.php';"
 		}
 	]
 }
